@@ -1,0 +1,8 @@
+<h1>Pesquisa de satisfação</h1>
+
+<%= fields_for @issue.survey.nil? ? @issue.build_survey : @issue.survey do |f| -%>
+  <%= text_field_tag :comentario %>
+
+  <%= number_field_tag :nota %>
+
+<% end %>

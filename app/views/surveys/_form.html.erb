@@ -1,0 +1,10 @@
+<h1>Pesquisa de satisfação</h1>
+
+<%= fields_for @survey do |f| -%>
+  <%= f.text_field :comentario %>
+
+  <%= f.number_field :nota %>
+
+  <%= f.submit %>
+
+<% end %>

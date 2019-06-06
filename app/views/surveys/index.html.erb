@@ -1,0 +1,29 @@
+<h2>SurveysController#index</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Issue</th>
+    <th>Comentario</th>
+    <th>Nota</th>
+    <th colspan="3">Operações</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @surveys.each do |survey| %>
+    <tr>
+      <td><%= survey.id %></td>
+      <td><%= survey.issue_id %></td>
+      <td><%= survey.comentario %></td>
+      <td><%= survey.nota %></td>
+      <td><%= link_to 'Show', surveys_path(survey) %></td>
+      <td><%= link_to 'Edit', edit_surveys_path(survey) %></td>
+      <td><%= link_to 'Destroy', destroy_surveys_path(survey), method: :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Novo", new_surveys_path %>
