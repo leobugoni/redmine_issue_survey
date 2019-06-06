@@ -2,8 +2,6 @@
 
 This plugin enables you to add surveys to a issue. 
 
-The initial author of the plugin is [Leonardo Bugoni](http://www.redminecrm.com/projects/external_item/pages/1)
-
 ## Compatibility
 
 This plugin version is compatible only with Redmine 3.0 and later.
