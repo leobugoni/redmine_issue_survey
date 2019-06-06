@@ -32,7 +32,3 @@ This plugin version is compatible only with Redmine 3.0 and later.
         bundle exec rake redmine:plugins:migrate RAILS_ENV=production 
         
 4. Restart Redmine.
-
-## License
-
-Redmine ExternalItem plugin is open source and released under the terms of the GNU General Public License v2 (GPL).
