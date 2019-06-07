@@ -1,0 +1,8 @@
+# pt-BR strings go here for Rails i18n
+pt-BR:
+  survey_id: Id
+  issue_id: Nº Chamado
+  issue_survey_author: Autor
+  survey_comment: Comentário
+  survey_rating: Nota
+  survey_operations: Operação

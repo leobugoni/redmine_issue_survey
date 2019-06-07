@@ -9,6 +9,8 @@ Redmine::Plugin.register :redmine_survey do
   url 'http://example.com/path/to/plugin'
   author_url 'http://example.com/about'
 
+  menu :admin_menu, :survey, { :controller => 'surveys', :action => 'index' }, :caption => 'Surveys'
+
   Redmine::AccessControl.map do |map|
     map.project_module :issue_tracking do |map|
       map.permission :view_surveys, {}

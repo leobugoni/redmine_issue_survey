@@ -1,29 +1,46 @@
-<h2>SurveysController#index</h2>
+<div class="container">
+  <h1>Pesquisa de Satisfação</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>Id</th>
-    <th>Issue</th>
-    <th>Comentario</th>
-    <th>Nota</th>
-    <th colspan="3">Operações</th>
-  </tr>
-  </thead>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"><%= l(:issue_id) %></th>
+        <th scope="col"><%= l(:issue_survey_author) %></th>
+        <th scope="col"><%= l(:survey_comment) %></th>
+        <th scope="col"><%= l(:survey_rating) %></th>
+      </tr>
+    </thead>
 
-  <tbody>
-  <% @surveys.each do |survey| %>
-    <tr>
-      <td><%= survey.id %></td>
-      <td><%= survey.issue_id %></td>
-      <td><%= survey.comentario %></td>
-      <td><%= survey.nota %></td>
-      <td><%= link_to 'Show', surveys_path(survey) %></td>
-      <td><%= link_to 'Edit', edit_surveys_path(survey) %></td>
-      <td><%= link_to 'Destroy', destroy_surveys_path(survey), method: :delete %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @surveys.each do |survey| %>
+        <tr>
+          <td><%= link_to survey.issue_id, issue_path(survey.issue_id) %></td>
+          <td><%= survey.get_author %></td>
+          <td><%= survey.comentario %></td>
+          <td nowrap>
+            <% (1..5).each do |i|%>
+              <% if survey.true_if_rating_smaller_then_iterator(survey.nota, i)%>
+                <strong class="text-orange">★</strong>
+              <% else %>
+                <strong class="text-black">★</strong>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>&nbsp;</div>
 
-<%= link_to "Novo", new_surveys_path %>
+  <div class="col-md-12">
+    <div class="col-md-5"></div>
+    <div class="col-md-2"><%= paginate @surveys %></div>
+    <div class="col-md-5"></div>
+  </div>
+</div>
+
+
+<% content_for :header_tags do %>
+  <%= javascript_include_tag 'star', plugin: 'redmine_survey' %>
+  <%= stylesheet_link_tag "bootstrap", plugin: 'redmine_survey' %>
+<% end %>

@@ -21,4 +21,14 @@ class Survey < ActiveRecord::Base
     "#{self.comentario} - #{self.nota} - #{self.issue_id}"
   end
 
+  def true_if_rating_smaller_then_iterator(nota, i)
+    if nota >= i
+      true
+    end
+  end
+
+  def get_author
+    self.issue.author
+  end
+
 end
