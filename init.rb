@@ -3,20 +3,18 @@ require 'redmine_survey/redmine_survey'
 
 Redmine::Plugin.register :redmine_survey do
   name 'Redmine Survey plugin'
-  author 'Author name'
-  description 'This is a plugin for Redmine'
+  author 'Leonardo Bugoni'
+  description 'This satisfaction survey plugin for Redmine'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
-  author_url 'http://example.com/about'
+  url 'https://gitlab.com/maxicredito/redmine_issue_survey'
+  author_url 'mailto:leobugoni@gmail.com'
 
-  menu :admin_menu, :survey, { :controller => 'surveys', :action => 'index' }, :caption => 'Surveys'
+  menu :admin_menu, :survey, { :controller => 'surveys', :action => 'index' }, { :last => true, :caption => "Pequisa de Satisfação", :html => { :class => 'icon-ticket-note' } }
 
+  settings :partial => 'settings/survey_settings'
   Redmine::AccessControl.map do |map|
     map.project_module :issue_tracking do |map|
       map.permission :view_surveys, {}
-      map.permission :update_surveys, {}
-      map.permission :delete_surveys, {}
-      map.permission :create_surveys, {}
     end
   end
 end

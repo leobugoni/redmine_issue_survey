@@ -1,8 +1,14 @@
-<h1>Pesquisa de satisfação</h1>
-
-<%= fields_for @issue.survey.nil? ? @issue.build_survey : @issue.survey do |f| -%>
-  <%= text_field_tag :comentario %>
-
-  <%= number_field_tag :nota %>
-
+<% if @issue.status.to_s == IssueStatus.find(Setting.plugin_redmine_survey['issues_status_for']).name.to_s && Setting.plugin_redmine_survey['required'] && @issue.author == User.current %>
+  <fieldset class="tabular"><legend>Pesquisa de satisfação</legend>
+    <%= fields_for @issue.survey.nil? ? @issue.build_survey : @issue.survey do |f| %>
+    <div class="splitcontent">
+      <div class="splitcontentleft">
+        <p><%= label_tag l(:survey_comment) %><%= f.text_area :comentario, :required => true %></p>
+      </div>
+      <div class="splitcontentright">
+        <p><%= label_tag l(:survey_rating) %><%= f.select :nota, [1, 2, 3, 4, 5], {:prompt => '--- Selecione ---'}, :required => true %></p>
+      </div>
+    </div>
+  <% end %>
+  </fieldset>
 <% end %>

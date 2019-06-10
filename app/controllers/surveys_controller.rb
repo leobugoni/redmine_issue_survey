@@ -7,7 +7,7 @@ class SurveysController < ApplicationController
   end
 
   def index
-    @surveys = Survey.order("id").page(params['page']).per(5)
+    @surveys = Survey.order("id").page(params['page']).per(20)
   end
 
   def new

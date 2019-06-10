@@ -3,6 +3,9 @@ pt-BR:
   survey_id: Id
   issue_id: Nº Chamado
   issue_survey_author: Autor
+  issue_project: Projeto
   survey_comment: Comentário
   survey_rating: Nota
   survey_operations: Operação
+  setting_choose_status: Status para quando mostrar pesquisa
+  setting_required: Obrigatório

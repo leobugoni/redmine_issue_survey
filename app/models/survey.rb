@@ -7,7 +7,8 @@ class Survey < ActiveRecord::Base
   attr_accessible :comentario, :nota, :issue_id
   attr_protected :id
 
-  validates_presence_of :comentario, :nota
+  validates :comentario, presence: true, length: { minimum: 5 }
+  validates :nota, presence: true, numericality: true
 
   def editable_by?(usr=User.current)
     usr && (usr.allowed_to?(:update_surveys, project) || (self.author == usr && usr.allowed_to?(:edit_own_surveys, project)))
@@ -31,4 +32,7 @@ class Survey < ActiveRecord::Base
     self.issue.author
   end
 
+  def get_project
+    self.issue.project
+  end
 end

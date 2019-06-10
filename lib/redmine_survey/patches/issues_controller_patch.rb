@@ -10,9 +10,21 @@ module RedmineSurvey
       end
 
       def update_issue_from_params_with_survey
+        if @issue.survey.nil? && !params[:survey].nil?
+          insert_survey(params[:survey])
+        end
         update_issue_from_params_without_survey
-        puts '================================================ update_with_survey  ================================================'
-        @issue.update_survey(params[:survey])
+      end
+
+      private
+
+      def insert_survey(survey_new)
+        comentario = survey_new[:comentario]
+        unless comentario.blank?
+          conn = ActiveRecord::Base.connection
+          query = "INSERT INTO surveys (issue_id, comentario, nota) VALUES(#{@issue.id}, '#{comentario}', #{survey_new[:nota]});"
+          conn.execute query
+        end
       end
     end
   end

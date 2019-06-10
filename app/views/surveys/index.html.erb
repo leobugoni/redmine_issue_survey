@@ -6,6 +6,7 @@
       <tr>
         <th scope="col"><%= l(:issue_id) %></th>
         <th scope="col"><%= l(:issue_survey_author) %></th>
+        <th scope="col"><%= l(:issue_project) %></th>
         <th scope="col"><%= l(:survey_comment) %></th>
         <th scope="col"><%= l(:survey_rating) %></th>
       </tr>
@@ -16,6 +17,7 @@
         <tr>
           <td><%= link_to survey.issue_id, issue_path(survey.issue_id) %></td>
           <td><%= survey.get_author %></td>
+          <td><%= survey.get_project %></td>
           <td><%= survey.comentario %></td>
           <td nowrap>
             <% (1..5).each do |i|%>
@@ -38,7 +40,6 @@
     <div class="col-md-5"></div>
   </div>
 </div>
-
 
 <% content_for :header_tags do %>
   <%= javascript_include_tag 'star', plugin: 'redmine_survey' %>

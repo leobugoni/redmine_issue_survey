@@ -1,0 +1,13 @@
+<% @settings = {} unless @settings.is_a? Hash %>
+<div class="tabular settings">
+  <p>
+    <% statuses = IssueStatus.all.map { |s| [s.name, s.id] } %>
+    <%= setting_label(:choose_status) %>
+    <%= select_tag('settings[issues_status_for]', options_for_select(statuses, @settings[:issues_status_for])) %>
+  </p>
+  <p>
+    <%= setting_label(:required) %>
+    <%= check_box_tag('settings[required]', true, @settings[:required]) %>
+  </p>
+  <hr>
+</div>
