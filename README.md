@@ -13,20 +13,25 @@ This plugin version is compatible only with Redmine 3.0 and later.
     
     Or
 
-    * Change you current directory to your Redmine root directory:  
+    * Change you current directory to your Redmine plugins directory:
 
-            cd {REDMINE_ROOT}
+            cd {REDMINE_ROOT}/plugins
             
       Copy the plugin from GitHub using the following commands:
       
             git clone git@gitlab.com:maxicredito/redmine_issue_survey.git
             
-2. Update the Gemfile.lock file by running the following commands:  
+            
+2. Install kaminari gem to your redmine
+
+        gem install kaminari
+        
+3. Update the Gemfile.lock file by running the following commands:  
 
         bundle install
             
-3. This plugin requires a migration. Run the following command to upgrade your database (make a database backup before):  
+4. This plugin requires a migration. Run the following command to upgrade your database (make a database backup before):  
 
         bundle exec rake redmine:plugins:migrate RAILS_ENV=production 
         
-4. Restart Redmine.
+5. Restart Redmine.
