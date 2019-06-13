@@ -5,7 +5,7 @@ Redmine::Plugin.register :redmine_survey do
   name 'Redmine Survey plugin'
   author 'Leonardo Bugoni'
   description 'This satisfaction survey plugin for Redmine'
-  version '0.0.1'
+  version '0.1.0'
   url 'https://gitlab.com/maxicredito/redmine_issue_survey'
   author_url 'mailto:leobugoni@gmail.com'
 
