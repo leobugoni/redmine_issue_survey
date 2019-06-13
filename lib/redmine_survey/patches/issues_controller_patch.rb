@@ -10,7 +10,7 @@ module RedmineSurvey
       end
 
       def update_issue_from_params_with_survey
-        if @issue.survey.nil? && !params[:survey].nil?
+        if @issue.survey.nil? && !params[:survey].nil? && Setting.plugin_redmine_survey['required']
           insert_survey(params[:survey])
         end
         update_issue_from_params_without_survey
