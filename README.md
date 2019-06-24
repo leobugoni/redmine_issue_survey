@@ -19,7 +19,7 @@ This plugin version is compatible only with Redmine 3.0 and later.
             
       Copy the plugin from GitHub using the following commands:
       
-            git clone git@gitlab.com:maxicredito/redmine_issue_survey.git
+            git clone git@github.com:leobugoni/redmine_issue_survey.git
             
             
 2. Install kaminari gem to your redmine
