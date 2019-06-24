@@ -6,7 +6,7 @@ Redmine::Plugin.register :redmine_survey do
   author 'Leonardo Bugoni'
   description 'This satisfaction survey plugin for Redmine'
   version '0.1.0'
-  url 'https://gitlab.com/maxicredito/redmine_issue_survey'
+  url 'https://github.com/leobugoni/redmine_issue_survey'
   author_url 'mailto:leobugoni@gmail.com'
 
   menu :admin_menu, :survey, { :controller => 'surveys', :action => 'index' }, { :last => true, :caption => "Pequisa de Satisfação", :html => { :class => 'icon-ticket-note' } }
